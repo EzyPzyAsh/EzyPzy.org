@@ -11,6 +11,8 @@ btn.addEventListener('mouseleave', () => btn.style.transform = 'scale(1)');
 const container = document.querySelector('.flutter-container');
 for (let i = 0; i < 20; i++) {
 	const img = document.createElement("img");
+	
+
 	const randomIdx = Math.floor(Math.random() * 8) + 1;
 	img.src = randomIdx + ".png";
 
@@ -26,8 +28,25 @@ for (let i = 0; i < 20; i++) {
 
 	img.className = 'fluttering-img';
 	container.appendChild(img);
+	
 }
 
+
+const finLink = document.createElement('a');
+finLink.href = 'fin.html';
+finLink.width = '100px';
+finLink.height = '100px';
+finLink.style.left = Math.random() * 100 + 'vw';
+
+finLink.className = 'fin-link';
+finLink.style.pointerEvents = 'auto';
+
+const finImg = document.createElement('img');
+finImg.src = 'fallingFin.png';
+finImg.className = 'fin-img';
+finLink.appendChild(finImg);
+
+document.body.appendChild(finLink);
 // ----------------------------
 // Minesweeper draggable popup
 // ----------------------------
