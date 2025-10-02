@@ -1,0 +1,234 @@
+/* Reset & fonts */
+body, h1, p, a { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+a { text-decoration: none; color: inherit; }
+
+body {
+  background: linear-gradient(135deg, #7F0012, #1B0a07);
+  color: #222;
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+  background: rgba(255,255,255,0.8);
+  position: sticky;
+  top: 0;
+}
+
+header .logo {
+  font-family: 'Orbitron', cursive;
+  font-size: 1.8rem;
+  color: #000000;
+}
+
+nav a {
+  margin-left: 20px;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav a:hover { color: #ff5e5e; }
+
+.hero {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 span { color: #ff5e5e; }
+
+.btn {
+  margin-top: 20px;
+  padding: 10px 25px;
+  background: #ff5e5e;
+  color: #fff;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.btn:hover { transform: scale(1.1); }
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 50px 0;
+}
+
+.card {
+  background: rgba(255,255,255,0.8);
+  margin: 15px;
+  padding: 30px 50px;
+  border-radius: 15px;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.8);
+  z-index: -2
+}
+
+footer .socials a { margin: 0 10px; color: #ff5e5e; font-weight: 600; }
+
+
+.shape {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  animation: float 5s infinite ease-in-out;
+}
+
+.fluttering-img {
+  position: absolute;
+  transform-origin: center;
+  filter: brightness(0.5);
+  animation: flutter linear infinite;
+}
+
+
+/* Vertical fall */
+@keyframes fall {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(110vh); }
+}
+
+/* Side-to-side sway */
+@keyframes sway {
+  0% { transform: translateX(0) scaleX(1); }
+  50% { transform: translateX(20px) scaleX(0.9); }
+  100% { transform: translateX(-20px) scaleX(1.1); }
+}
+
+/* Slow rotation/flipping effect */
+@keyframes rotate {
+  0% { transform: rotate(0deg) scaleX(1); }
+  50% { transform: rotate(10deg) scaleX(0.9); }
+  100% { transform: rotate(-10deg) scaleX(1.1); }
+}
+
+
+.fluttering-img {
+  position: absolute;
+  transform-origin: center;
+  animation: flutter linear infinite;
+}
+
+/* Combined flutter animation */
+@keyframes flutter {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg) scaleX(1);
+  }
+  25% {
+    transform: translateY(25vh) translateX(10px) rotate(5deg) scaleX(0.9);
+  }
+  50% {
+    transform: translateY(50vh) translateX(-10px) rotate(-5deg) scaleX(1.1);
+  }
+  75% {
+    transform: translateY(75vh) translateX(5px) rotate(2deg) scaleX(0.95);
+  }
+  100% {
+    transform: translateY(110vh) translateX(0) rotate(0deg) scaleX(1);
+  }
+}
+
+.hero {
+  position: relative; /* necessary for absolute children */
+  overflow: hidden;   /* hide images outside hero */
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flutter-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* images won’t block clicks */
+  overflow: hidden;
+  z-index: 0; /* behind text/buttons */
+}
+
+.hero h1,
+.hero h2,
+.hero p,
+.btn {
+  position: relative; /* ensures they stack above flutter-container */
+  z-index: 1;
+  color: #FFFFFF;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+}
+
+header {
+  /* nothing special needed */
+}
+
+main {
+  flex: 1; /* takes all available space */
+}
+
+footer {
+  background: rgba(255,255,255,0.8);
+  text-align: center;
+  padding: 20px;
+}
+
+.about-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* spacing between boxes */
+  padding: 20px;
+}
+
+.content-box {
+  background: rgba(255, 255, 255, 0.1); /* low-opacity white */
+  border-radius: 20px;
+  padding: 20px 30px;
+  max-width: 700px;
+  width: 90%;
+  text-align: center;  /* center the text */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* subtle shadow */
+}
+
+.content-box h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #ff5e5e; /* accent color for headings */
+}
+
+.content-box p {
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
