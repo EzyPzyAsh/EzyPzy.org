@@ -1,6 +1,48 @@
-// ----------------------------
-// Reusable Draggable Window
-// ----------------------------
+
+const btn = document.querySelector('.btn');
+btn.addEventListener('mouseenter', () => btn.style.transform = 'scale(1.2)');
+btn.addEventListener('mouseleave', () => btn.style.transform = 'scale(1)');
+
+const container = document.querySelector('.flutter-container');
+if (container) {
+  for (let i = 0; i < 20; i++) {
+    const img = document.createElement("img");
+    const randomIdx = Math.floor(Math.random() * 8) + 1;
+    img.src = randomIdx + ".png";
+
+    img.style.position = 'absolute';
+    img.style.width = (30 + Math.random() * 30) + 'px';
+    img.style.height = (30 + Math.random() * 30) + 'px';
+    img.style.left = Math.random() * 100 + 'vw';
+    img.style.top = '-50px';
+    img.style.pointerEvents = 'none';
+
+    const duration = Math.random() * 5 + 5;
+    img.style.animation = `flutter ${duration}s linear infinite`;
+
+    img.className = 'fluttering-img';
+    container.appendChild(img);
+  }
+}
+
+
+
+const finLink = document.createElement('a');
+finLink.href = 'fin.html';
+finLink.width = '100px';
+finLink.height = '100px';
+finLink.style.left = Math.random() * 100 + 'vw';
+finLink.className = 'fin-link';
+finLink.style.pointerEvents = 'auto';
+
+const finImg = document.createElement('img');
+finImg.src = 'fallingFin.png';
+finImg.className = 'fin-img';
+finLink.appendChild(finImg);
+
+document.body.appendChild(finLink);
+
+
 function createDraggableWindow(element, headerElement) {
   // Add draggable logic to a pre-created window
   headerElement.addEventListener('pointerdown', (e) => {
