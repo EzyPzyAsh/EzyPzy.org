@@ -79,10 +79,10 @@ footer {
   text-align: center;
   padding: 20px;
   background: rgba(255,255,255,0.8);
-  z-index: -2
+  z-index: 0;
 }
 
-footer .socials a { margin: 0 10px; color: #ff5e5e; font-weight: 600; }
+footer .socials a {position: inline-block; margin: 0 10px; color: #ff5e5e; font-weight: 600; z-index: 1000;}
 
 
 .shape {
@@ -198,7 +198,7 @@ footer .socials a { margin: 0 10px; color: #ff5e5e; font-weight: 600; }
   height: 100%;
   pointer-events: none; 
   overflow: hidden;
-  z-index: 1000; }
+  z-index: 10; }
 
 .hero h1,
 .hero h2,
