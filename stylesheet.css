@@ -94,12 +94,20 @@ footer .socials a { margin: 0 10px; color: #ff5e5e; font-weight: 600; }
   animation: float 5s infinite ease-in-out;
 }
 
-.fluttering-img {
+.fluttering-img-back {
   position: absolute;
   transform-origin: center;
   filter: brightness(0.5);
   animation: flutter linear infinite;
+  transform: scale(0.3)
 }
+
+.fluttering-img-front {
+  position: absolute;
+  transform-origin: center;
+  animation: flutter linear infinite;
+}
+
 
 
 /* Vertical fall */
@@ -162,11 +170,11 @@ footer .socials a { margin: 0 10px; color: #ff5e5e; font-weight: 600; }
     display: block;
     animation: finFlutter 8s linear infinite;
     pointer-events: auto;
-    z-index: 0;
+    z-index: 100;
 }
 .fin-img {
     width: 30px;
-    z-index: 0;
+    z-index: -100;
     filter: brightness(0.5);
 }
 
@@ -182,16 +190,15 @@ footer .socials a { margin: 0 10px; color: #ff5e5e; font-weight: 600; }
   text-align: center;
 }
 
-.flutter-container {
+.flutter-container-front {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* images won’t block clicks */
+  pointer-events: none; 
   overflow: hidden;
-  z-index: 0; /* behind text/buttons */
-}
+  z-index: 1000; }
 
 .hero h1,
 .hero h2,
@@ -201,6 +208,19 @@ footer .socials a { margin: 0 10px; color: #ff5e5e; font-weight: 600; }
   z-index: 1;
   color: #FFFFFF;
 }
+
+.flutter-container-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* images won’t block clicks */
+  overflow: hidden;
+  z-index: -1000; /* behind text/buttons */
+}
+
+
 
 html, body {
   height: 100%;

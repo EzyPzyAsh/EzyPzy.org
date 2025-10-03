@@ -2,8 +2,9 @@ const btn = document.querySelector('.btn');
 btn.addEventListener('mouseenter', () => btn.style.transform = 'scale(1.2)');
 btn.addEventListener('mouseleave', () => btn.style.transform = 'scale(1)');
 
-const container = document.querySelector('.flutter-container');
-if (container) {
+const containerFront = document.querySelector('.flutter-container-front');
+const containerBack = document.querySelector('.flutter-container-back');
+
   for (let i = 0; i < 20; i++) {
     const img = document.createElement("img");
     const randomIdx = Math.floor(Math.random() * 8) + 1;
@@ -17,22 +18,50 @@ if (container) {
     const duration = Math.random() * 5 + 5;
     img.style.animation = `flutter ${duration}s linear infinite`;
     img.className = 'fluttering-img';
-    container.appendChild(img);
-  }
-}
+    if (Math.random() < 0.5)
+	  {
+    img.className = 'fluttering-img-front';
+    containerFront.appendChild(img);
+	  }
+    else
+    {
+	img.className = 'fluttering-img-back';
+	containerBack.appendChild(img);
+    };
+};
 
+
+// Create Finn link behind everything
 const finLink = document.createElement('a');
 finLink.href = 'fin.html';
-finLink.width = '100px';
-finLink.height = '100px';
-finLink.style.left = Math.random() * 100 + 'vw';
 finLink.className = 'fin-link';
-finLink.style.pointerEvents = 'auto';
+finLink.style.position = 'absolute';
+finLink.style.left = Math.random() * 100 + 'vw';
+finLink.style.top = Math.random() * 80 + 'vh'; // random vertical position
+finLink.style.zIndex = '-10'; // behind all other elements
+finLink.style.pointerEvents = 'auto'; // clicks *might* work if nothing covers him
+
+// Create Finn image
 const finImg = document.createElement('img');
 finImg.src = 'fallingFin.png';
 finImg.className = 'fin-img';
+finImg.style.height = '30px';
+finImg.style.zIndex = '-10'; // keep image behind content
+finImg.style.pointerEvents = 'none'; // so the link itself can still receive pointer events if uncovered
+
 finLink.appendChild(finImg);
 document.body.appendChild(finLink);
+document.addEventListener('click', (e) => {
+    const rect = finLink.getBoundingClientRect();
+    if (
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom
+    ) {
+        window.location.href = finLink.href;
+    }
+});
 
 function createDraggableWindow(element, headerElement) {
   headerElement.addEventListener('pointerdown', (e) => {
