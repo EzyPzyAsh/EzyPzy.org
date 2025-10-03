@@ -4,24 +4,31 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Embedding Example</title>
 
+    <link rel=stylesheet href=nes-embed.css>
+
     <script type="text/javascript" src="https://unpkg.com/jsnes/dist/jsnes.min.js"></script>
     <script type="text/javascript" src="nes-embed.js"></script>
     <script>
-      window.onload = function() {
+      function startNES() {
+        // Only start the emulator after a gesture
         nes_load_url("nes-canvas", "game.nes");
-      };
-
-      function resumeAudio() {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        if (ctx.state === "suspended") ctx.resume();
+        
+        // Hide the start screen once loaded
+        document.getElementById("start-screen").style.display = "none";
+        document.getElementById("game-area").style.display = "block";
       }
     </script>
   </head>
-  <body onclick="resumeAudio()">
-    <div style="margin: auto; width: 75%;">
-      <canvas id="nes-canvas" width="256" height="240" style="width: 100%"></canvas>
+  <body>
+	  <a href=../>Return to the mortal realm</a>
+    <div id="start-screen" style="text-align: center; margin-top: 20%;">
+      <button onclick="startNES()">▶ Ascend </br> (your controls will be at the bottom of the page)</button>
     </div>
-    <p>DPad: Arrow keys<br/>Start: Return, Select: Tab<br/>A Button: A, B Button: S</p>
+
+    <div id="game-area" style="display: none; margin: auto; width: 75%;">
+      <canvas id="nes-canvas" width="256" height="240" style="width: 100%"></canvas>
+      <p>DPad: Arrow keys<br/>Start: Return, Select: Tab<br/>A Button: A, B Button: S</p>
+    </div>
   </body>
 </html>
 

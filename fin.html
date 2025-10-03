@@ -1,9 +1,14 @@
 <!DOCTYPE html>
+
+<head>
+<link rel="stylesheet" href="fin.css">
+<audio id="sound" src="success.mp3"></audio>
+</head>
 <img id="finImage" src="wheresfin.png" width="90%" style="display: block; margin: 0 auto;">
 <h1 id="Instructions">Find Fin</h1>
 <script>
   const texts = ["Find Finn", "Find Fionna", "Find The Jiggler", "Find Banana Man"]
-  const coordsX = [[1416, 1536], [2669, 2810], [1367, 1463], [2572, 2643]];
+  const coordsX = [[1416, 1536], [2669, 2810], [1367, 1463], [2572, 2643], [99999, 99999]];
   const coordsY = [[370, 603], [733, 1066], [797, 935], [856, 997], [99999, 99999]]
   let score = 0;
 document.getElementById('finImage').addEventListener('click', function(event) {
@@ -22,6 +27,7 @@ document.getElementById('finImage').addEventListener('click', function(event) {
 	{
 		console.log('clicked finn');
 		score += 1;
+		document.getElementById('sound').play()
 		if (score > 3)
 		{
 			const image = document.createElement("img");
