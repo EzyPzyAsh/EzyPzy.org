@@ -172,7 +172,7 @@ sweepericon.addEventListener('click', () => {
   createDraggableWindow(sweeperdiv, header);
 });
 
-window.addEventListener('DOMContentLoaded', () => {
+/*window.addEventListener('DOMContentLoaded', () => {
   const messageDiv = document.createElement('div');
   Object.assign(messageDiv.style, {
     width: '500px',
@@ -246,4 +246,5 @@ P.S. I'm draggable and my button works *hint* *hint*`;
   document.body.appendChild(messageDiv);
   createDraggableWindow(messageDiv, header);
 });
+*/
 
