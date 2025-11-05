@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "express": "^5.1.0",
+    "ws": "^8.18.3"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "messages",
+  "version": "1.0.0",
+  "main": "script-backup.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
