@@ -1,0 +1,1 @@
+curl -F "file=@YOURFILEDIRECTORY" https://ezypzy.org/upload
